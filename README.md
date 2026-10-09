@@ -1,6 +1,5 @@
 # praktyka_project / task-manager
 
-Projekt praktyk WTZ — struktura katalogów zgodna z zadaniem `directory status`.
 
 ```
 task-manager/
@@ -14,7 +13,6 @@ task-manager/
 └── README.md
 ```
 
-> Uwaga: w tym repozytorium katalog główny `praktyka_project/` odpowiada katalogowi `task-manager/` ze скриншота.
 
 ## Frontend
 Prosty start: `frontend/index.html` + `style.css` + `app.js`.
