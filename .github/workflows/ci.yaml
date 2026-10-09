@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f frontend/index.html
+          test -f frontend/css/style.css
+          test -f frontend/js/app.js
+          test -f .gitignore
+          echo "All required files present"
+
+      - name: Validate HTML basics
+        run: |
+          grep -q "<html" frontend/index.html
+          grep -q "taskInput" frontend/index.html frontend/js/app.js
+          echo "HTML/JS sanity check passed"
