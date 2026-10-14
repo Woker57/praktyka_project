@@ -1,0 +1,75 @@
+# Zadaniowo — projekt wyglądu aplikacji
+
+Materiały na drugi dzień praktyk: lista zadań, formularz dodania/edycji, logowanie, paleta, typografia i logo. Projekt zakłada prosty menedżer osobistych zadań.
+
+## Makiety
+
+- [Lista zadań](design/task-list.svg)
+- [Formularz dodania/edycji](design/task-form.svg)
+- [Logowanie](design/login.svg)
+- [Podgląd wszystkich ekranów w przeglądarce](design/preview.html)
+
+### Lista zadań
+
+![Lista zadań](design/task-list.svg)
+
+Przycisk „Dodaj zadanie” prowadzi do formularza. Filtry i wyszukiwarka ograniczają listę; checkbox zmienia status na „Zakończone”. „Edytuj” otwiera formularz z danymi wybranego zadania. Priorytet ma etykietę tekstową, aby kolor nie był jedynym nośnikiem informacji.
+
+### Dodanie / edycja zadania
+
+![Formularz](design/task-form.svg)
+
+W trybie edycji nagłówek brzmi „Edytuj zadanie”, a pola zawierają istniejące dane. Tytuł jest wymagany (1–120 znaków po usunięciu spacji na brzegach); opis, termin i priorytet są opcjonalne. Domyślny priorytet: średni; status: do zrobienia. Pusty tytuł pokazuje komunikat „Wpisz tytuł zadania” pod polem. Zapis przekierowuje na listę i pokazuje „Zadanie zapisane”. Anulowanie wraca bez zapisu.
+
+### Logowanie
+
+![Logowanie](design/login.svg)
+
+Pola: e-mail i hasło, przycisk logowania oraz odnośniki odzyskania hasła i rejestracji (do wdrożenia w późniejszym etapie). Przy błędzie: „Nieprawidłowy e-mail lub hasło”. Podczas wysyłania: „Logowanie…” i blokada ponownego wysłania.
+
+## Paleta kolorów
+
+| Rola | HEX | Zastosowanie |
+|---|---|---|
+| Główny | #4338CA | Przyciski, linki, aktywne filtry |
+| Dodatkowy | #0F766E | Oznaczenie wykonania zadania |
+| Tło | #F8FAFC | Tło ekranów |
+| Tekst | #0F172A | Nagłówki i podstawowy tekst |
+| Tekst pomocniczy | #475569 | Opisy i etykiety |
+| Powierzchnia | #FFFFFF | Karty i pola formularzy |
+| Obramowanie | #CBD5E1 | Dekoracyjne separatory i pola |
+| Błąd / wysoki priorytet | #9F1239 | Komunikaty; tło #FFF1F2 |
+
+### Kontrast
+
+Współczynniki obliczone według luminancji względnej sRGB: zwykły tekst powinien mieć co najmniej 4,5:1.
+
+| Para | Kontrast |
+|---|---|
+| Tekst / tło | 17.06:1 |
+| Tekst pomocniczy / biel | 7.58:1 |
+| Biel / główny | 7.90:1 |
+| Biel / dodatkowy | 5.47:1 |
+| Błąd / jasne tło | 7.30:1 |
+
+## Typografia
+
+- Nagłówki: [Manrope](https://fonts.google.com/specimen/Manrope), 700; 30–32 px (główny nagłówek), 20–24 px (sekcja). Geometryczna forma pasuje do prostego znaku i wyraźnie wyróżnia hierarchię.
+- Treść: [Inter](https://fonts.google.com/specimen/Inter), 400; 16 px, interlinia 1,5. Wybrany ze względu na czytelne etykiety i liczby w tabeli zadań. Przyciski i etykiety: 600.
+- Fonty zastępcze: Segoe UI, Arial, sans-serif. SVG korzystają z fontów systemowych dla przenośnego podglądu; HTML ładuje wybrane fonty z Google Fonts, gdy jest dostęp do internetu.
+
+## Logo
+
+![Logo Zadaniowo](design/logo.svg)
+
+Biały znak zatwierdzenia w fioletowym kwadracie z zaokrąglonymi rogami oznacza wykonane zadanie. Prosty znak działa jako ikona aplikacji oraz obok nazwy. Plik SVG jest skalowalny; minimalny zalecany rozmiar znaku: 24 × 24 px.
+
+## Układ i dostępność
+
+Makiety desktopowe mają 1200 × 820 px. Siatka odstępów: 8 px; zaokrąglenia kart: 12–18 px. Na telefonie (poniżej 768 px) formularz i lista zajmują jedną kolumnę; w logowaniu panel promocyjny znika. Filtry mogą przewijać się poziomo. Przyciski mają wysokość co najmniej 44 px.
+
+We wdrożeniu: etykiety powiązane z polami, obsługa klawiaturą, widoczny fokus w kolorze głównym, komunikaty błędów odczytywane przez czytniki ekranu. Pusta lista: „Nie masz jeszcze zadań” i przycisk dodania. Brak wyników: „Nie znaleziono zadań”; błąd pobierania: „Nie udało się pobrać zadań” z przyciskiem ponowienia.
+
+## Zakres materiałów
+
+To makiety i specyfikacja projektu, bez połączenia z backendem. Podgląd HTML służy prezentacji ekranów; przyciski wewnątrz makiet są statyczne. Wszystkie materiały są w katalogu docs, w osobnym branchu design.
