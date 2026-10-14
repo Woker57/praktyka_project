@@ -2,6 +2,12 @@
 
 Materiały na drugi dzień praktyk: lista zadań, formularz dodania/edycji, logowanie, paleta, typografia i logo. Projekt zakłada prosty menedżer osobistych zadań.
 
+## Projekt w Figma
+
+[Otwórz projekt Zadaniowo w Figma](https://www.figma.com/design/B7n1bk5PJCKAuLwpqePFeU?node-id=1-2)
+
+Plik zawiera trzy makiety ekranów oraz paletę kolorów, typografię i logo na stronie „Makiety i system wizualny”.
+
 ## Makiety
 
 - [Lista zadań](design/task-list.svg)
