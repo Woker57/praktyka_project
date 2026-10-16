@@ -1,10 +1,4 @@
--- Zadanie 3: dane testowe dla tabel z database/table-schema.sql.
--- Uruchom caly plik w Query Tool bazy, w ktorej istnieja users, tasks i comment.
--- W schemacie tabela nazywa sie comment (liczba pojedyncza).
--- Skrypt mozna uruchomic ponownie: nie doda tych samych danych drugi raz.
-
 BEGIN;
-
 INSERT INTO users (login, email, password_hash, role)
 VALUES
     ('admin', 'admin@example.com', 'hash-placeholder-1', 'admin'),
@@ -14,7 +8,6 @@ VALUES
     ('marek', 'marek@example.com', 'hash-placeholder-5', 'user')
 ON CONFLICT (login) DO NOTHING;
 
--- user_id jest pobierane z users po loginie, zamiast zakladac, ze ma wartosc 2.
 INSERT INTO tasks (title, description, status, user_id)
 SELECT seed.title, seed.description, seed.status, users.id
 FROM (VALUES
@@ -29,7 +22,6 @@ WHERE NOT EXISTS (
     SELECT 1 FROM tasks WHERE tasks.title = seed.title
 );
 
--- task_id i user_id sa pobierane z istniejacych wierszy.
 INSERT INTO comment (content, task_id, user_id)
 SELECT seed.content, tasks.id, users.id
 FROM (VALUES
@@ -49,8 +41,6 @@ WHERE NOT EXISTS (
 );
 
 COMMIT;
-
--- Oczekiwany wynik w nowej bazie: po 5 rekordow w kazdej tabeli.
 SELECT 'users' AS table_name, COUNT(*) AS row_count FROM users
 UNION ALL
 SELECT 'tasks', COUNT(*) FROM tasks
