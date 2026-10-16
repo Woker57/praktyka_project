@@ -10,26 +10,25 @@ Plik zawiera trzy makiety ekranów oraz paletę kolorów, typografię i logo na 
 
 ## Makiety
 
-- [Lista zadań](design/task-list.svg)
-- [Formularz dodania/edycji](design/task-form.svg)
-- [Logowanie](design/login.svg)
-- [Podgląd wszystkich ekranów w przeglądarce](design/preview.html)
+- [Lista zadań](design/task-list.png)
+- [Formularz dodania/edycji](design/task-form.png)
+- [Logowanie](design/login.png)
 
 ### Lista zadań
 
-![Lista zadań](design/task-list.svg)
+![Lista zadań](design/task-list.png)
 
 Przycisk „Dodaj zadanie” prowadzi do formularza. Filtry i wyszukiwarka ograniczają listę; checkbox zmienia status na „Zakończone”. „Edytuj” otwiera formularz z danymi wybranego zadania. Priorytet ma etykietę tekstową, aby kolor nie był jedynym nośnikiem informacji.
 
 ### Dodanie / edycja zadania
 
-![Formularz](design/task-form.svg)
+![Formularz](design/task-form.png)
 
 W trybie edycji nagłówek brzmi „Edytuj zadanie”, a pola zawierają istniejące dane. Tytuł jest wymagany (1–120 znaków po usunięciu spacji na brzegach); opis, termin i priorytet są opcjonalne. Domyślny priorytet: średni; status: do zrobienia. Pusty tytuł pokazuje komunikat „Wpisz tytuł zadania” pod polem. Zapis przekierowuje na listę i pokazuje „Zadanie zapisane”. Anulowanie wraca bez zapisu.
 
 ### Logowanie
 
-![Logowanie](design/login.svg)
+![Logowanie](design/login.png)
 
 Pola: e-mail i hasło, przycisk logowania oraz odnośniki odzyskania hasła i rejestracji (do wdrożenia w późniejszym etapie). Przy błędzie: „Nieprawidłowy e-mail lub hasło”. Podczas wysyłania: „Logowanie…” i blokada ponownego wysłania.
 
@@ -62,13 +61,13 @@ Współczynniki obliczone według luminancji względnej sRGB: zwykły tekst powi
 
 - Nagłówki: [Manrope](https://fonts.google.com/specimen/Manrope), 700; 30–32 px (główny nagłówek), 20–24 px (sekcja). Geometryczna forma pasuje do prostego znaku i wyraźnie wyróżnia hierarchię.
 - Treść: [Inter](https://fonts.google.com/specimen/Inter), 400; 16 px, interlinia 1,5. Wybrany ze względu na czytelne etykiety i liczby w tabeli zadań. Przyciski i etykiety: 600.
-- Fonty zastępcze: Segoe UI, Arial, sans-serif. SVG korzystają z fontów systemowych dla przenośnego podglądu; HTML ładuje wybrane fonty z Google Fonts, gdy jest dostęp do internetu.
+- Fonty zastępcze: Segoe UI, Arial, sans-serif. W katalogu `docs/design` znajdują się obrazy PNG ekranów; edytowalny projekt z wybranymi fontami jest dostępny przez link do Figma.
 
 ## Logo
 
-![Logo Zadaniowo](design/logo.svg)
+Logo Zadaniowo jest widoczne na każdym ekranie oraz w projekcie Figma.
 
-Biały znak zatwierdzenia w fioletowym kwadracie z zaokrąglonymi rogami oznacza wykonane zadanie. Prosty znak działa jako ikona aplikacji oraz obok nazwy. Plik SVG jest skalowalny; minimalny zalecany rozmiar znaku: 24 × 24 px.
+Biały znak zatwierdzenia w fioletowym kwadracie z zaokrąglonymi rogami oznacza wykonane zadanie. Prosty znak działa jako ikona aplikacji oraz obok nazwy. Minimalny zalecany rozmiar znaku: 24 × 24 px.
 
 ## Układ i dostępność
 
@@ -78,4 +77,4 @@ We wdrożeniu: etykiety powiązane z polami, obsługa klawiaturą, widoczny foku
 
 ## Zakres materiałów
 
-To makiety i specyfikacja projektu, bez połączenia z backendem. Podgląd HTML służy prezentacji ekranów; przyciski wewnątrz makiet są statyczne. Wszystkie materiały są w katalogu docs, w osobnym branchu design.
+To makiety i specyfikacja projektu, bez połączenia z backendem. Obrazy PNG przedstawiają statyczne ekrany; przyciski na obrazach nie są interaktywne. Trzy obrazy znajdują się w katalogu `docs/design`, a edytowalny projekt w Figma. Materiały są w osobnym branchu `design`.
