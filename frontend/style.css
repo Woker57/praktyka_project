@@ -1,0 +1,254 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #0F172A;
+  background: #F8FAFC;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.brand,
+.intro__message h1,
+.login-card h2 {
+  font-family: Manrope, "Segoe UI", Arial, sans-serif;
+}
+
+/* Page layout */
+.login-page {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-width: 1100px;
+  min-height: 100vh;
+}
+
+/* Intro panel */
+.intro {
+  background: #4338CA;
+  color: #fff;
+}
+
+.intro__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 59px 61px 60px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand__mark {
+  width: 28px;
+  height: 28px;
+}
+
+.intro__message {
+  margin-top: auto;
+}
+
+.intro__message h1 {
+  margin: 0;
+  font-size: clamp(32px, 3.55vw, 42px);
+  font-weight: 750;
+  letter-spacing: -.03em;
+  line-height: 1.31;
+}
+
+.intro__message p {
+  margin: 21px 0 0;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.tip {
+  width: 100%;
+  max-width: 377px;
+  margin-top: 59px;
+  margin-bottom: auto;
+  padding: 20px 24px 21px;
+  border-radius: 15px;
+  background: #3730A3;
+}
+
+.tip__title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.tip p {
+  margin: 11px 0 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Login card */
+.form-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 40px 30px;
+  background: #F8FAFC;
+}
+
+.login-card {
+  width: min(100%, 465px);
+  padding: 32px 38px 47px;
+  border-radius: 17px;
+  background: #fff;
+}
+
+.login-card h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 750;
+  letter-spacing: -.025em;
+  line-height: 1.25;
+}
+
+.login-card__subtitle {
+  margin: 10px 0 31px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Form fields */
+.field {
+  margin-bottom: 22px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.field input {
+  display: block;
+  width: 100%;
+  height: 45px;
+  padding: 0 13px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #0F172A;
+  font-size: 14px;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.field input::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+
+.field input:focus {
+  border-color: #4338CA;
+  box-shadow: 0 0 0 3px rgb(67 56 202 / 13%);
+}
+
+.field--password {
+  margin-bottom: 12px;
+}
+
+/* Form actions and feedback */
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-button,
+.register-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #4338CA;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.text-button:hover,
+.register-button:hover {
+  text-decoration: underline;
+}
+
+.text-button:focus-visible,
+.register-button:focus-visible,
+.submit-button:focus-visible {
+  outline: 3px solid #a7a3ff;
+  outline-offset: 3px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  height: 43px;
+  margin-top: 26px;
+  padding-left: 17px;
+  border: 0;
+  border-radius: 8px;
+  background: #4338CA;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  text-align: left;
+  transition: background-color .15s;
+}
+
+.submit-button:hover {
+  background: #3730A3;
+}
+
+.register-button {
+  display: block;
+  margin: 27px auto 0;
+}
+
+.form-message {
+  margin: 17px 0 0;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: #EEF2FF;
+  color: #3730A3;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.demo-note {
+  margin: 18px 0 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.submit-button:disabled {
+  opacity: .65;
+  cursor: wait;
+}

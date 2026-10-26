@@ -1,0 +1,67 @@
+@host = http://localhost:5113
+
+### API
+GET {{host}}/api/health
+
+### Połączenie z PostgreSQL
+GET {{host}}/api/health/db
+
+### Użytkownicy (bez haseł)
+GET {{host}}/api/users
+
+### Zadania użytkownika 2
+GET {{host}}/api/tasks?userId=2
+
+### Zadania do wykonania
+GET {{host}}/api/tasks?status=todo
+
+### Jedno zadanie (podstaw istniejące ID)
+GET {{host}}/api/tasks/1
+
+### Utwórz zadanie (userId musi istnieć)
+POST {{host}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Podłączyć frontend do API",
+  "description": "Zapisać zadanie w PostgreSQL",
+  "status": "todo",
+  "priority": "high",
+  "dueDate": "2026-11-02",
+  "userId": 2
+}
+
+### Edytuj zadanie (podstaw ID utworzonego zadania)
+PUT {{host}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Podłączyć frontend do API",
+  "description": "Przetestować zapis",
+  "status": "in_progress",
+  "priority": "medium",
+  "dueDate": null
+}
+
+### Zmień status
+PATCH {{host}}/api/tasks/1/status
+Content-Type: application/json
+
+{
+  "status": "done"
+}
+
+### Komentarze
+GET {{host}}/api/tasks/1/comments
+
+### Dodaj komentarz
+POST {{host}}/api/tasks/1/comments
+Content-Type: application/json
+
+{
+  "content": "Wygląda dobrze",
+  "userId": 2
+}
+
+### Usuń zadanie i jego komentarze (podstaw ID testowego zadania)
+DELETE {{host}}/api/tasks/1

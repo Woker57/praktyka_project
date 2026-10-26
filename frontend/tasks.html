@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4338CA">
+  <title>Twoje zadania — Zadaniowo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tasks.css">
+  <script src="tasks.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="app-brand" href="#list" aria-label="Zadaniowo — lista zadań">
+      <span class="app-brand__mark" aria-hidden="true">✓</span>
+      <span>Zadaniowo</span>
+    </a>
+    <div class="app-header__account">
+      <span id="welcome">Witaj!</span>
+      <button id="logout" class="link-button" type="button">Wyloguj</button>
+    </div>
+  </header>
+
+  <main id="list-view" class="tasks-main">
+    <div class="page-heading">
+      <div>
+        <h1>Twoje zadania</h1>
+        <p>Małe kroki. Jasny plan. Wszystko w jednym miejscu.</p>
+      </div>
+      <a class="primary-button add-button" href="#new">+ Dodaj zadanie</a>
+    </div>
+
+    <div class="tasks-toolbar">
+      <div class="filters" aria-label="Filtruj zadania">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Wszystkie <span id="all-count"></span></button>
+        <button class="filter" type="button" data-filter="todo" aria-pressed="false">Do zrobienia <span id="todo-count"></span></button>
+        <button class="filter" type="button" data-filter="done" aria-pressed="false">Zakończone <span id="done-count"></span></button>
+      </div>
+      <label class="search-label" for="task-search">Szukaj zadania...</label>
+      <input id="task-search" class="task-search" type="search" placeholder="Szukaj zadania..." aria-label="Szukaj zadania">
+    </div>
+
+    <div class="task-columns" aria-hidden="true">
+      <span>ZADANIE</span>
+      <span>PRIORYTET</span>
+      <span>TERMIN</span>
+      <span></span>
+    </div>
+    <div id="task-list" class="task-list"></div>
+    <p id="empty-state" class="empty-state" hidden></p>
+    <p id="task-summary" class="task-summary"></p>
+    <p id="task-notice" class="task-notice" role="status" hidden></p>
+  </main>
+
+  <main id="form-view" class="form-main" hidden>
+    <a class="back-link" href="#list">← Wróć do listy</a>
+    <section class="task-form-card" aria-labelledby="form-title">
+      <h1 id="form-title">Dodaj zadanie</h1>
+      <p>Zaplanuj kolejny krok i ustal termin.</p>
+      <form id="task-form" novalidate>
+        <div class="task-field">
+          <label for="title">Tytuł *</label>
+          <input id="title" name="title" type="text" maxlength="120" placeholder="Np. przygotować dokumentację" required>
+          <span id="title-error" class="field-error" role="alert" hidden>Wpisz tytuł zadania</span>
+        </div>
+        <div class="task-field">
+          <label for="description">Opis</label>
+          <textarea id="description" name="description" rows="4" placeholder="Dodaj szczegóły zadania..."></textarea>
+        </div>
+        <div class="task-form-grid">
+          <div class="task-field">
+            <label for="due-date">Termin</label>
+            <input id="due-date" name="dueDate" type="date">
+          </div>
+          <div class="task-field">
+            <label for="priority">Priorytet</label>
+            <select id="priority" name="priority">
+              <option value="medium">Średni</option>
+              <option value="high">Wysoki</option>
+              <option value="low">Niski</option>
+            </select>
+          </div>
+          <div class="task-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="todo">Do zrobienia</option>
+              <option value="in_progress">W trakcie</option>
+              <option value="done">Zakończone</option>
+            </select>
+          </div>
+        </div>
+        <div class="task-form-actions">
+          <a class="cancel-link" href="#list">Anuluj</a>
+          <button class="primary-button save-button" type="submit">Zapisz zadanie</button>
+        </div>
+      </form>
+      <p id="form-notice" class="form-message" role="alert" hidden></p>
+    </section>
+    <section id="comments-panel" class="task-form-card" aria-label="Komentarze" hidden>
+      <h2>Komentarze</h2>
+      <div id="comments-list"></div>
+      <form id="comment-form">
+        <label for="comment-content">Nowy komentarz</label>
+        <textarea id="comment-content" name="content" maxlength="1000" required></textarea>
+        <button class="primary-button" type="submit">Dodaj komentarz</button>
+      </form>
+      <p id="comment-notice" role="alert" hidden></p>
+    </section>
+  </main>
+</body>
+</html>
