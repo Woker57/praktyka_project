@@ -16,3 +16,6 @@ Thumbs.db
 !.vscode/extensions.json
 # kopie bazy z danymi
 *.backup
+
+# lokalne poświadczenia PostgreSQL (także na systemach case-sensitive)
+appsettings.Local.json

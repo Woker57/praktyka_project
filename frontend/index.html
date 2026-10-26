@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4338CA">
+  <meta name="description" content="Wybierz konto demonstracyjne i wróć do swoich zadań.">
+  <title>Wybór konta — Zadaniowo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="login-page">
+    <section class="intro" aria-label="O aplikacji Zadaniowo">
+      <div class="intro__content">
+        <div class="brand" aria-label="Zadaniowo">
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4.5 12.3 5.1 5.1L19.5 6.8" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Zadaniowo</span>
+        </div>
+        <div class="intro__message">
+          <h1>Mniej chaosu.<br>Więcej zrobione.</h1>
+          <p>Twoje zadania, terminy i priorytety<br class="desktop-break"> w jednym uporządkowanym miejscu.</p>
+        </div>
+        <div class="tip">
+          <div class="tip__title"><span aria-hidden="true">✓</span> Zaplanuj dzień</div>
+          <p>Zacznij od jednego małego kroku.</p>
+        </div>
+      </div>
+    </section>
+    <section class="form-area" aria-label="Wybór konta demonstracyjnego">
+      <div class="login-card">
+        <h2>Dobrze Cię widzieć</h2>
+        <p class="login-card__subtitle">Wpisz adres e-mail użytkownika z bazy danych.</p>
+        <form id="login-form">
+          <div class="field">
+            <label for="email">Adres e-mail</label>
+            <input id="email" name="email" type="email" placeholder="anna@example.com" autocomplete="username" required>
+          </div>
+
+          <button class="submit-button" type="submit">Przejdź do zadań</button>
+        </form>
+        <p class="demo-note">Tryb demonstracyjny: API nie ma jeszcze logowania ani weryfikacji hasła. Konto służy do przypisania zadań.</p>
+        <p id="form-message" class="form-message" role="status" aria-live="polite" hidden></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
