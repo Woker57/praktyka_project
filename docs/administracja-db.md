@@ -6,19 +6,29 @@ Pierwszą kopię tabeli `public.comment` w bazie `task_manager_2` wykonano w pgA
 
 ![Ukończona kopia tabeli comment w pgAdmin](screenshots/backup-completed.jpg)
 
-Pełny test odtworzenia przeprowadzono 27.10.2026 **w oddzielnej bazie** `task_manager_backup_demo_20261027`. W bazie testowej uruchomiono `database/table-schema.sql` i `database/seed-data.sql`. Kopię samej tabeli `public.comment` zapisano lokalnie w formacie Custom jako `../backup-demo/comment.backup` (plik testowy poza repozytorium). Archiwum zawierało definicję tabeli, jej dane, klucz główny i oba klucze obce.
+Pełny test odtworzenia przeprowadzono 27.10.2026 **w oddzielnej bazie** `task_manager_backup_demo_20261027`. W bazie testowej uruchomiono `database/table-schema.sql` i `database/seed-data.sql`. W pgAdmin wykonano nową kopię tabeli `public.comment` w formacie Custom do lokalnego pliku `backup-demo/comment-pgadmin.backup` (poza repozytorium). Archiwum zawierało definicję tabeli, jej 5 rekordów, klucz główny i oba klucze obce. Zarówno Backup, jak i Restore zakończyły się statusem `Finished`.
 
 | Krok | Polecenie lub sprawdzenie | Wynik |
 |---|---|---|
 | Przed usunięciem | `SELECT COUNT(*) FROM public.comment;` | 5 rekordów |
-| Usunięcie w bazie testowej | `DROP TABLE public.comment;` | `DROP TABLE` |
-| Potwierdzenie braku | `SELECT to_regclass('public.comment') IS NULL;` | `true` |
-| Przywrócenie | `pg_restore` z archiwum Custom do bazy testowej | zakończone bez błędu |
+| Usunięcie w bazie testowej | Drop na tabeli `public.comment` w pgAdmin | `Tables (2)` |
+| Potwierdzenie braku | Schemas → public → Tables | `comment` nie ma |
+| Przywrócenie | Restore w pgAdmin z archiwum Custom do bazy testowej | `Finished` |
 | Sprawdzenie po przywróceniu | `SELECT id, content, task_id, user_id FROM public.comment ORDER BY id;` | 5 rekordów, jak przed usunięciem |
 
-Właściwą kopię należy przechowywać poza komputerem z bazą, np. na zewnętrznym dysku albo serwerze. Awaria jednego dysku może zniszczyć jednocześnie bazę i kopię, jeśli oba pliki są na tym samym nośniku. Osobny folder lub litera partycji na tym samym dysku nie rozwiązuje tego problemu.
+![Backup w pgAdmin zakończony statusem Finished](screenshots/backup-demo-finished.jpg)
 
-[Dokument Word z instrukcją pgAdmin i zrzutem wykonania kopii](backup-restore-pgadmin.docx). Opisany wyżej test odtworzenia odbył się później w bazie testowej, więc wcześniejszy dokument nie zawiera zrzutów z tych kroków.
+![Potwierdzenie usunięcia tabeli comment w bazie testowej](screenshots/backup-demo-drop-confirm.jpg)
+
+![Po usunięciu w bazie testowej zostały dwie tabele](screenshots/backup-demo-table-missing.jpg)
+
+![Restore w pgAdmin zakończony statusem Finished](screenshots/backup-demo-restore-finished.jpg)
+
+![SELECT po odtworzeniu pokazuje pięć rekordów](screenshots/backup-demo-restored-rows.jpg)
+
+Właściwą kopię należy przechowywać poza komputerem z bazą, np. na zewnętrznym dysku albo serwerze. Awaria jednego dysku może zniszczyć jednocześnie bazę i kopię, jeśli oba pliki są na tym samym nośniku. Osobny folder lub litera partycji na tym samym dysku nie rozwiązuje tego problemu. Plik w `backup-demo` posłużył tylko do lokalnego testu.
+
+[Dokument Word z instrukcją i pięcioma zrzutami z testu pgAdmin](backup-restore-pgadmin.docx).
 
 ## Rola tylko do odczytu
 
